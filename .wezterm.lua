@@ -12,10 +12,10 @@ end
 config.color_scheme = "tokyonight_night"
 config.window_background_opacity = 0.8
 config.font = wezterm.font_with_fallback({
-	{ family = "JetBrains Mono Nerd Font", scale = 1 },
+	{ family = "JetBrains Mono", scale = 1 },
 	{ family = "Fira Code Nerd Font", scale = 1 },
 })
-config.font_size = 18
+config.font_size = 17
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "AlwaysPrompt"
 config.inactive_pane_hsb = {
@@ -133,7 +133,7 @@ local pill = function(opts)
 		{ Foreground = { AnsiColor = "Black" } },
 		{ Background = def.color },
 		{ Text = def.header },
-		{ Text = " " },
+		{ Text = "  " },
 		"ResetAttributes",
 		{ Background = def.bg },
 		{ Text = " " },
