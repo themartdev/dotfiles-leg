@@ -22,7 +22,7 @@ config.inactive_pane_hsb = {
 	saturation = 0.8,
 	brightness = 0.6,
 }
---config.front_end = "WebGpu"
+config.front_end = "WebGpu"
 
 -- === BEGIN NVIM INTEGRATION ===
 
