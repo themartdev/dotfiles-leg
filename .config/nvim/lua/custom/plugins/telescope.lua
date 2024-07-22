@@ -18,9 +18,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			end,
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
-
-		-- Useful for getting pretty icons, but requires a Nerd Font.
-		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 	},
 	config = function()
 		-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -64,8 +61,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				selection_strategy = "follow",
 				mappings = {
 					i = {
-						["<C-k>"] = "move_selection_previous",
-						["<C-j>"] = "move_selection_next",
+						["<C-p>"] = "move_selection_previous",
+						["<C-n>"] = "move_selection_next",
 						["<esc>"] = "close",
 					},
 				},
@@ -78,7 +75,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[ ] Search Files" })
+		vim.keymap.set("n", "<C-n>", builtin.find_files, { desc = "[ ] Search Files" })
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })

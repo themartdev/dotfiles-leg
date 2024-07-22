@@ -10,7 +10,7 @@ end
 -- config.color_scheme = "Catppuccin Mocha"
 -- config.color_scheme = "City Lights (Gogh)"
 config.color_scheme = "tokyonight_night"
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.85
 config.font = wezterm.font_with_fallback({
 	{ family = "JetBrains Mono", scale = 1 },
 	{ family = "Fira Code Nerd Font", scale = 1 },
@@ -22,6 +22,7 @@ config.inactive_pane_hsb = {
 	saturation = 0.8,
 	brightness = 0.6,
 }
+--config.front_end = "WebGpu"
 
 -- === BEGIN NVIM INTEGRATION ===
 
@@ -94,6 +95,20 @@ config.keys = {
 
 	-- Key table for moving tabs around
 	{ key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "move_tab", one_shot = false }) },
+
+	-- Rename tab
+	{
+		key = "r",
+		mods = "LEADER",
+		action = act.PromptInputLine({
+			description = "New tab title",
+			action = wezterm.action_callback(function(window, _, line)
+				if line then
+					window:active_tab():set_title(line)
+				end
+			end),
+		}),
+	},
 }
 
 for i = 1, 9 do
